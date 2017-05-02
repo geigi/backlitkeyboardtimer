@@ -1,0 +1,11 @@
+[Unit]
+Description=Turns your backlit keyboard on and off on inactivity
+After=graphical.target
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/opt/backlitkeyboardtimer/backlitkeyboardtimer.sh
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
