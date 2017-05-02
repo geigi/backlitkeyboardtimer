@@ -10,6 +10,10 @@ depends=(xprintidle)
 source=("$pkgname-$pkgver.tar.gz")
 md5sums=('SKIP')
 
+prepare() {
+	chmod 666 /sys/class/leds/smc::kbd_backlight/brightness
+}
+
 package() {
 	SYSTEMD_DESTDIR="${pkgdir}/usr/lib/systemd/user/"
 	PCK_DESTDIR="${pkgdir}/opt/backlitkeyboardtimer/"
